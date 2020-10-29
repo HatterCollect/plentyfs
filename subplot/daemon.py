@@ -48,6 +48,7 @@ def start_daemon(ctx, name, argv):
     print("this['pid-file'] = {0}".format(this['pid-file']))
     print("pid-file: {0}".format(open(this['pid-file']).read()))
     print("stdout: {0}".format(open(this['stdout']).read()))
+    print("stderr: {0}".format(open(this['stderr']).read()))
     this["pid"] = int(open(this["pid-file"]).read().strip())
     assert process_exists(this["pid"])
 
