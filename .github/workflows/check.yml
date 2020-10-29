@@ -23,5 +23,8 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v2
 
+      - name: Find out where we are
+        run: pwd
+
       - name: Run ./check (prints out the log if it failed)
         run: ./check || cat test.log
