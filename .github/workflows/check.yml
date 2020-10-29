@@ -35,8 +35,20 @@ jobs:
       - name: Check that the process is running
         run: ps aux | grep plentyfs
 
-      - name: Check that the process is running (try 2)
-        run: ps aux | grep $(cat pid-file)
+      - name: Check what's in here
+        run: ls -lF
+
+      - name: whoami
+        run: whoami
+
+      - name: groups
+        run: groups
+
+      - name: mounts
+        run: mount
+
+      - name: /dev/fuse
+        run: ls -l /dev/fuse
 
         #- name: Run ./check (prints out the log if it failed)
         #run: ./check || (ls -lF && cat test.log && exit 1)
