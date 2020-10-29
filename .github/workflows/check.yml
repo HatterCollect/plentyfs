@@ -23,5 +23,11 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v2
 
+      - name: Build it
+        run: cargo build
+
+      - name: Try it
+        run: mkdir mnt && timeout 5 cargo run -- mnt
+
       - name: Run ./check (prints out the log if it failed)
         run: ./check || (ls -lF && cat test.log && exit 1)
