@@ -27,7 +27,13 @@ jobs:
         run: cargo build
 
       - name: Try it
-        run: mkdir mnt && timeout 5 cargo run -- mnt
+        run: mkdir mnt && daemonize -p pid-file ./target/debug/plentyfs mnt
 
-      - name: Run ./check (prints out the log if it failed)
-        run: ./check || (ls -lF && cat test.log && exit 1)
+      - name: Print out its PID
+        run: cat pid-file
+
+      - name: Check that the process is running
+        run: ps aux | grep $(pid-file)
+
+        #- name: Run ./check (prints out the log if it failed)
+        #run: ./check || (ls -lF && cat test.log && exit 1)
