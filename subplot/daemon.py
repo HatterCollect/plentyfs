@@ -43,6 +43,8 @@ def start_daemon(ctx, name, argv):
         + argv,
     )
     runcmd_exit_code_is(ctx, 0)
+    print("os.getcwd() = {0}".format(os.getcwd()))
+    print("this['pid-file'] = {0}".format(this['pid-file']))
     this["pid"] = int(open(this["pid-file"]).read().strip())
     assert process_exists(this["pid"])
 
