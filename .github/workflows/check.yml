@@ -56,5 +56,5 @@ jobs:
       - name: /dev/fuse
         run: ls -l /dev/fuse
 
-        #- name: Run ./check (prints out the log if it failed)
-        #run: ./check || (ls -lF && cat test.log && exit 1)
+      - name: Run ./check (prints out the log if it failed)
+        run: ./check || (pwd && ls -lF && cat test.log && exit 1)
