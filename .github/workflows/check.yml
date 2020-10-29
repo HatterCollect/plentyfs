@@ -27,7 +27,7 @@ jobs:
         run: cargo build
 
       - name: Try it
-        run: mkdir mnt && daemonize -p pid-file -o stdout -e stderr $(pwd)/target/debug/plentyfs mnt
+        run: mkdir mnt && daemonize -v -p pid-file -o stdout -e stderr $(pwd)/target/debug/plentyfs mnt
 
       - name: Print out its PID
         run: cat pid-file
