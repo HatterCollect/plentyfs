@@ -26,35 +26,35 @@ jobs:
       - name: Build it
         run: cargo build
 
-      - name: Try it
-        run: mkdir mnt && daemonize -v -c $(pwd) -p pid-file -o stdout -e stderr $(pwd)/target/debug/plentyfs mnt
-
-      - name: Print out its PID
-        run: cat pid-file
-
-      - name: Print out its stdout
-        run: cat stdout
-
-      - name: Print out its stderr
-        run: cat stderr
-
-      - name: Check that the process is running
-        run: ps aux | grep plentyfs
-
-      - name: Check what's in here
-        run: ls -lF
-
-      - name: whoami
-        run: whoami
-
-      - name: groups
-        run: groups
-
-      - name: mounts
-        run: mount
-
-      - name: /dev/fuse
-        run: ls -l /dev/fuse
+        #- name: Try it
+        #  run: mkdir mnt && daemonize -v -c $(pwd) -p pid-file -o stdout -e stderr $(pwd)/target/debug/plentyfs mnt
+        #
+        #- name: Print out its PID
+        #  run: cat pid-file
+        #
+        #- name: Print out its stdout
+        #  run: cat stdout
+        #
+        #- name: Print out its stderr
+        #  run: cat stderr
+        #
+        #- name: Check that the process is running
+        #  run: ps aux | grep plentyfs
+        #
+        #- name: Check what's in here
+        #  run: ls -lF
+        #
+        #- name: whoami
+        #  run: whoami
+        #
+        #- name: groups
+        #  run: groups
+        #
+        #- name: mounts
+        #  run: mount
+        #
+        #- name: /dev/fuse
+        #  run: ls -l /dev/fuse
 
       - name: Run ./check (prints out the log if it failed)
         run: ./check || (pwd && ls -lF && cat test.log && exit 1)
