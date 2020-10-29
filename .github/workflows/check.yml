@@ -27,10 +27,16 @@ jobs:
         run: cargo build
 
       - name: Try it
-        run: mkdir mnt && daemonize -p pid-file $(pwd)/target/debug/plentyfs mnt
+        run: mkdir mnt && daemonize -p pid-file -o stdout -e stderr $(pwd)/target/debug/plentyfs mnt
 
       - name: Print out its PID
         run: cat pid-file
+
+      - name: Print out its stdout
+        run: cat stdout
+
+      - name: Print out its stderr
+        run: cat stderr
 
       - name: Check that the process is running
         run: ps aux | grep plentyfs
