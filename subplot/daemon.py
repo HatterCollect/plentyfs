@@ -46,6 +46,7 @@ def start_daemon(ctx, name, argv):
     runcmd_exit_code_is(ctx, 0)
     print("os.getcwd() = {0}".format(os.getcwd()))
     print("this['pid-file'] = {0}".format(this['pid-file']))
+    print("pid-file: {0}".format(open(this['pid-file']).read()))
     print("stdout: {0}".format(open(this['stdout']).read()))
     print("stderr: {0}".format(open(this['stderr']).read()))
     this["pid"] = int(open(this["pid-file"]).read().strip())
