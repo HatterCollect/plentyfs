@@ -33,7 +33,10 @@ jobs:
         run: cat pid-file
 
       - name: Check that the process is running
-        run: ps aux | grep $(pid-file)
+        run: ps aux | grep plentyfs
+
+      - name: Check that the process is running (try 2)
+        run: ps aux | grep $(cat pid-file)
 
         #- name: Run ./check (prints out the log if it failed)
         #run: ./check || (ls -lF && cat test.log && exit 1)
